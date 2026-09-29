@@ -23,8 +23,7 @@ For at least 4 of my 5 test questions, the retrieved chunks include one that
 contains the answer.
 
 **Why this target:**
-<!-- e.g. "One of my questions is about a topic only two documents mention, so
-     I expect that one to be hard." -->
+My corpus is short, student-written posts, so the useful fact is often contained in a single sentence. I picked 4 of 5 because one question is about a policy detail that appears in fewer documents than the others, so that one is naturally a little harder without making the target too loose.
 
 ---
 
@@ -33,8 +32,7 @@ contains the answer.
 Every answer the system produces names at least one source document.
 
 **Why this target:**
-<!-- Why all five and not four? What about your setup makes that achievable —
-     or what would have to go wrong for it not to be? -->
+This setup is meant to be evidence-based, not an opaque model answer. In a document-grounded system, missing a source is a basic failure, and having all five answers cite a file is a realistic standard for this small corpus.
 
 ---
 
@@ -50,48 +48,25 @@ in at least 4 of 5 tries.
      just keep five of them, or the "4 of 5" above has nothing to be 4 of. -->
 
 **Why this target:**
-<!-- What did your distances look like when you set the cutoff in Milestone 4?
-     Was there a clean gap, or did the two groups overlap? -->
+The gate should be a strong filter on a small, focused corpus. I want a clean separation between in-corpus and out-of-corpus questions, and 4 of 5 leaves room for one edge case without allowing the system to drift into hallucination.
 
 ---
 
 ## 4. Something about your chunks
 
-<!-- YOU WRITE THIS ONE.
-
-     How would you know if your chunks were the right size? Name something
-     countable or observable.
-
-     Examples of the right shape — don't copy these, they should come from
-     what you actually saw in Milestone 3:
-       - "At least 4 of 5 sampled chunks read as a complete thought, with no
-          sentence cut in half at either end."
-       - "No chunk is shorter than 200 characters, since anything below that
-          in my corpus turned out to be a heading with no content under it." -->
-
-
+At least 4 of 5 sampled chunks read as a complete thought, with no sentence cut in half at either end.
 
 **Why this target:**
-
-
+The campus_life documents are short posts, so a chunk should keep the useful fact intact instead of slicing through a sentence. If the chunk boundaries break a thought in the middle, the retrieval layer can still find the right document but the answer becomes much less reliable.
 
 ---
 
 ## 5. Your choice
 
-<!-- YOU WRITE THIS ONE TOO.
-
-     Pick something you actually care about getting right. It could be about
-     speed, about refusals, about a particular kind of question your corpus
-     handles badly, about source attribution being correct rather than merely
-     present — anything, as long as it names a number or an observable
-     outcome. -->
-
-
+For at least 4 of my 5 in-corpus questions, the relevance gate does not refuse the question before the model answers it.
 
 **Why this target:**
-
-
+This matters because a good retrieval system should not over-reject questions that are actually covered by the corpus. The corpus is small and targeted, so a refusal on more than one in-corpus question would mean the cutoff is too strict rather than the retrieval being appropriately cautious.
 
 ---
 
