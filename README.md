@@ -2,6 +2,8 @@
 
 By: Bhanusupraja | Corpus: campus_life
 
+Repository status: the project is fully evaluated locally; push is blocked from this environment because the origin remote points at the upstream CodePath repo rather than a personal fork.
+
 ---
 
 # Unit 1
