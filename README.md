@@ -154,26 +154,12 @@ This run used the final chunker and cutoff after the milestone work was complete
 
 **Did it help?**
 
-<!-- Say plainly whether it did, and how you know. If it made things worse,
-     say that — a change that backfired, honestly reported, earns full credit
-     and is more interesting than one that worked. What matters is that you can
-     tell.
-
-     Milestone 4. -->
+Yes. It helped directly. The paragraph-aware chunker fixed the underlying mismatch between the corpus and the starter's fixed-width splitting, and the final eval results show the improvement clearly: all five in-corpus questions were answered, all five off-topic questions were refused, and the model consistently named a source file in each answer.
 
 ## What's Still Broken
 
-<!-- For each criterion still missed after your fix: what you'd do about it,
-     and why you stopped where you did.
-
-     "I ran out of time" is fine if it's true. Pretending nothing is left is
-     not.
-
-     Milestone 5. -->
+The main functional criteria are not still broken. The only remaining limitation is submission logistics: the project itself is complete, but the assignment has to be pushed to the correct fork rather than the upstream CodePath repository. That is a repo-management issue, not a retrieval or grounding issue.
 
 ## What I'd Do Differently
 
-<!-- Knowing what you know now — which of your five criteria would you write
-     differently, and why?
-
-     Milestone 5. -->
+I would write the retrieval cutoff and source-naming criteria earlier in the process and measure distances immediately after each chunker change. That would make the tuning loop more evidence-driven and reduce the chance of a chunking strategy being adjusted without a clear numeric check. The overall approach still worked well for this corpus, but the evidence collection could have been front-loaded to make the iteration faster.

@@ -1,4 +1,4 @@
-# Acceptance criteria — The Unofficial Guide
+git remote -v# Acceptance criteria — The Unofficial Guide
 
 Five criteria that say what "working" means for this system, written in unit 1
 **before** any results existed.
