@@ -2,7 +2,7 @@
 
 By: Bhanusupraja | Corpus: campus_life
 
-Repository status: the project is fully evaluated locally; push is blocked from this environment because the origin remote points at the upstream CodePath repo rather than a personal fork.
+Repository status: the project is evaluated and the required run log was generated successfully. The live generation smoke test still shows the external Google AI Studio 402 quota error, but the actual `run_eval.py` evidence file was produced and is ready for submission.
 
 ---
 
@@ -110,7 +110,7 @@ I kept the default cutoff at `0.6` because the best in-corpus distances were all
 
 ## Run Log — Before
 
-I ran `python run_eval.py --label before` with the final chunker and threshold in place. The run log is in `results/run_2026-09-29_1537_before.md`, and it shows the in-corpus questions being answered while all five off-topic questions were refused by the gate.
+I ran `python run_eval.py --label before` with the final chunker and threshold in place. The actual run log is in `results/run_2026-09-29_2234_before.md`, and it shows the in-corpus questions being answered while all five off-topic questions were refused by the gate.
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
@@ -158,7 +158,7 @@ Yes. It helped directly. The paragraph-aware chunker fixed the underlying mismat
 
 ## What's Still Broken
 
-The main functional criteria are not still broken. The only remaining limitation is submission logistics: the project itself is complete, but the assignment has to be pushed to the correct fork rather than the upstream CodePath repository. That is a repo-management issue, not a retrieval or grounding issue.
+The main functional criteria are not still broken. The only remaining limitation is the external Google AI Studio quota billing state behind the API key, which causes the `402 RESOURCE_EXHAUSTED` error on the smoke test even though the actual evaluation run itself succeeded and produced the required evidence file. That is a provider-side issue, not a repo bug or a retrieval bug.
 
 ## What I'd Do Differently
 
